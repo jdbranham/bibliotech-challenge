@@ -14,20 +14,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>Tests</title>
+    <title>my-books-view-test</title>
 
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+
+    <!-- Import the element to test -->
+    <script type="module" src="../src/my-books-view.js"></script>
   </head>
   <body>
-    <script>
-      WCT.loadSuites([
-        // Load 'my-view1.html' test suite, using native shadow dom
-        'my-home-view.html?dom=shadow',
-        // Load 'my-view1.html' test suite, using shadydom
-        'my-home-view.html?wc-shadydom=true',
-        'my-books-view.html?dom=shadow',
-        'my-books-view.html?wc-shadydom=true',
-      ]);
+    <test-fixture id="BasicView">
+      <template>
+        <my-books-view></my-books-view>
+      </template>
+    </test-fixture>
+
+    <script type="module">
+      suite('my-books-view tests', function() {
+        test('Header should be "Trending Now"', function() {
+          var myView = fixture('BasicView');
+          var elem = myView.shadowRoot.querySelector('#bookContainer > h2');
+
+          assert.equal(elem.textContent, 'Trending Now');
+        });
+      });
     </script>
   </body>
 </html>
