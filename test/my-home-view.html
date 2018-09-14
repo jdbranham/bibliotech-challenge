@@ -31,11 +31,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <script type="module">
       suite('my-home-view tests', function() {
-        test('Header should be "Trending Now"', function() {
+        test('Header should be "Hi Suzy!"', function() {
           var myView = fixture('BasicView');
-          var elem = myView.shadowRoot.querySelector('#bookContainer > h2');
+          var elem = myView.shadowRoot.querySelector('.card > h1');
 
-          assert.equal(elem.textContent, 'Trending Now');
+          assert.equal(elem.textContent, 'Hi Suzy!');
         });
       });
     </script>
