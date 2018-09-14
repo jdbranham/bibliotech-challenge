@@ -38,7 +38,7 @@ class MyBooksView extends PolymerElement {
       
       <iron-ajax
           auto
-          url="/src/data/book.json"
+          url="/data/book.json"
           handle-as="json"
           on-response="handleResponse"
           debounce-duration="300">
